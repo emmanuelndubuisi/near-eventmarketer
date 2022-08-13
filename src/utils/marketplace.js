@@ -7,7 +7,6 @@ export function createEvent(event) {
   event.id = uuid4();
 
   event.amount = parseNearAmount(event.amount + "");
-  console.log(window.contract);
 
   return window.contract.createEvent({ event });
 }
@@ -17,7 +16,6 @@ export function getEvents() {
 }
 
 export async function bookEvent({ id, amount }) {
-  console.log(id,amount);
   await window.contract.bookEvent({ eventId: id }, GAS, amount);
 }
 
